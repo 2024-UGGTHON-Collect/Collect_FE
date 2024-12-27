@@ -36,11 +36,11 @@ class CategoryFragment : Fragment() {
 
         // 샘플 데이터
         val frequentlyViewedItems = listOf(
-            Pair(R.drawable.ic_launcher_background, "Item 1"),
-            Pair(R.drawable.ic_launcher_background, "Item 2"),
-            Pair(R.drawable.ic_launcher_background, "Item 3"),
-            Pair(R.drawable.ic_launcher_background, "Item 4"),
-            Pair(R.drawable.ic_launcher_background, "Item 5")
+            Pair(R.drawable.doc, "Item 1"),
+            Pair(R.drawable.babo, "Item 2"),
+            Pair(R.drawable.etc, "Item 3"),
+            Pair(R.drawable.bag, "Item 4"),
+            Pair(R.drawable.fashion, "Item 5")
         )
 
         // RecyclerView 초기화

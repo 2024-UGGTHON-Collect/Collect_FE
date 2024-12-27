@@ -30,10 +30,10 @@ class HomeFragment : Fragment() {
 
         // 샘플 데이터
         val items = listOf(
-            Item(R.drawable.ic_launcher_foreground, "기본 설명", 0),
-            Item(R.drawable.ic_launcher_foreground, "기본 설명", 1),
-            Item(R.drawable.ic_launcher_foreground, "기본 설명", 2),
-            Item(R.drawable.ic_launcher_foreground, "기본 설명", 3)
+            Item(R.drawable.doc, "기본 설명", 0),
+            Item(R.drawable.babo, "기본 설명", 1),
+            Item(R.drawable.etc, "기본 설명", 2),
+            Item(R.drawable.code, "기본 설명", 3)
         )
 
         // RecyclerView 설정
