@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadFragment(fragment: Fragment): Boolean {
         supportFragmentManager.beginTransaction()
-            .replace(binding.navHostFragment.id, fragment) // 뷰 바인딩 사용
+            .replace(binding.fragmentContainer.id, fragment) // 뷰 바인딩 사용
             .commit()
         return true
     }
