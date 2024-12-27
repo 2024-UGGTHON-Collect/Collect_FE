@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1076259310072",
+    "project_id": "collect-4418f",
+    "storage_bucket": "collect-4418f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076259310072:android:9e53894bb953bf8ef86e0d",
+        "android_client_info": {
+          "package_name": "com.uggthon.Collect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYgk4mpllwKSZOnJmFYPn3kJHafkKW4BM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
