@@ -62,6 +62,32 @@ class HomeFragment : Fragment() {
             linearLayout.addView(button)
         }
 
+        // 버튼 클릭 리스너 설정
+        binding.buttonShopping.setOnClickListener {
+            navigateToCategory("쇼핑")
+        }
+
+        binding.buttonDocument.setOnClickListener {
+            navigateToCategory("문서")
+        }
+
+        binding.buttonMusic.setOnClickListener {
+            navigateToCategory("음악")
+        }
+
+        binding.buttonEtc.setOnClickListener {
+            navigateToCategory("기타")
+        }
+
         return binding.root
+    }
+
+    // 카테고리 프래그먼트로 이동하는 함수
+    private fun navigateToCategory(categoryName: String) {
+        val fragment = CategoryFragment.newInstance(categoryName)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null) // 뒤로 가기 가능
+            .commit()
     }
 }
