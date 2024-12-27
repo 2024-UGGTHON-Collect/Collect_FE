@@ -13,6 +13,17 @@ class CategoryFragment : Fragment() {
     private var _binding: FragmentCategoryBinding? = null
     private val binding get() = _binding!!
 
+    companion object {
+        // 카테고리 이름을 인자로 받는 newInstance 메서드
+        fun newInstance(category: String): CategoryFragment {
+            val fragment = CategoryFragment()
+            val args = Bundle()
+            args.putString("category_name", category) // 카테고리 이름을 Bundle에 저장
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
