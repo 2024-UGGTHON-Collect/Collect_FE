@@ -12,6 +12,7 @@
         android:layout_width="220dp"
         android:layout_height="220dp"
         android:src="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop"
         android:contentDescription="Item Image" />
 
     <TextView
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:text="category"
         android:textSize="14sp"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/item_description"
@@ -32,6 +34,7 @@
         android:maxLines="3"
         android:ellipsize="end"
         android:lines="3"
-        android:scrollHorizontally="false" />
+        android:scrollHorizontally="false"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

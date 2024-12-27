@@ -194,9 +194,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="40dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/gra" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
