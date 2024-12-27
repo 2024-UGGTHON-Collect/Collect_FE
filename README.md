@@ -3,6 +3,7 @@
 <img src="https://github.com/2024-UGGTHON-Collect/Collect_FE/blob/main/asset/logo.png" width="250" height="250"/>
 <br>
 
+
 #### 주제 : 일상
 #### 스크린샷 속 숨겨진 기억
 
