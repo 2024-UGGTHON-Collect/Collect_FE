@@ -1,59 +1,67 @@
 package com.uggthon.Collect
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.uggthon.Collect.databinding.FragmentHomeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        // 카테고리 매핑
+        val categories = mapOf(
+            0 to "쇼핑",
+            1 to "문서",
+            2 to "SNS",
+            3 to "기타"
+        )
+
+        // 샘플 데이터
+        val items = listOf(
+            Item(R.drawable.ic_launcher_foreground, "기본 설명", 0),
+            Item(R.drawable.ic_launcher_foreground, "기본 설명", 1),
+            Item(R.drawable.ic_launcher_foreground, "기본 설명", 2),
+            Item(R.drawable.ic_launcher_foreground, "기본 설명", 3)
+        )
+
+        // RecyclerView 설정
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerView.adapter = ItemAdapter(items, categories)
+
+        // 1부터 31까지 버튼 동적으로 추가
+        val linearLayout = binding.linearLayoutButtons
+        for (i in 1..31) {
+            val button = Button(requireContext())
+            button.text = i.toString()
+
+            // LinearLayout.LayoutParams로 버튼 너비와 높이 설정
+            val layoutParams = LinearLayout.LayoutParams(
+                150, // 버튼 너비를 100dp로 설정
+                LinearLayout.LayoutParams.WRAP_CONTENT // 높이는 내용에 맞게 자동 조정
+            ).apply {
+                marginEnd = 25 // 버튼 간의 여백 추가
             }
+            button.layoutParams = layoutParams
+
+            // 둥근 테두리 설정 (배경 설정)
+            button.setBackgroundResource(R.drawable.rounded_button)
+
+            // 버튼을 LinearLayout에 추가
+            linearLayout.addView(button)
+        }
+
+        return binding.root
     }
 }
