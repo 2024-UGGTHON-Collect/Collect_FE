@@ -1,8 +1,10 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2E2B2B"
     android:padding="16dp">
 
     <!-- 상단 타이틀 -->
@@ -11,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fashion"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,27 +31,38 @@
         android:layout_marginTop="16dp">
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:paddingHorizontal="8dp"
+            android:backgroundTint="#FFD700"
+            android:textColor="@android:color/black"
             android:text="확인" />
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:paddingHorizontal="8dp"
+            android:backgroundTint="#FFD700"
+            android:textColor="@android:color/black"
             android:text="1주" />
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:paddingHorizontal="8dp"
+            android:backgroundTint="#FFD700"
+            android:textColor="@android:color/black"
             android:text="3주" />
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:paddingHorizontal="8dp"
+            android:backgroundTint="#FFD700"
+            android:textColor="@android:color/black"
             android:text="한달" />
     </LinearLayout>
 
@@ -59,26 +73,19 @@
         android:layout_height="wrap_content"
         android:text="이런 스크립트를 자주 봐요!"
         android:textSize="18sp"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/notification_buttons"
         android:layout_marginTop="16dp" />
 
-    <!-- 자주 본 내용 (Horizontal ScrollView) -->
-    <HorizontalScrollView
-        android:id="@+id/horizontal_scroll_view_frequent"
+    <!-- 리사이클러뷰 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_frequent"
         android:layout_width="0dp"
         android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_script_description"
-        android:layout_marginTop="16dp"
-        tools:ignore="NestedScrolling">
-
-        <LinearLayout
-            android:id="@+id/frequently_viewed_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp" />
-    </HorizontalScrollView>
+        android:layout_marginTop="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

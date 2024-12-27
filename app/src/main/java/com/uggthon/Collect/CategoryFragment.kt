@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.uggthon.Collect.databinding.FragmentCategoryBinding
-import com.uggthon.Collect.databinding.ItemFrequentBinding
 
 class CategoryFragment : Fragment() {
 
@@ -14,11 +14,10 @@ class CategoryFragment : Fragment() {
     private val binding get() = _binding!!
 
     companion object {
-        // 카테고리 이름을 인자로 받는 newInstance 메서드
         fun newInstance(category: String): CategoryFragment {
             val fragment = CategoryFragment()
             val args = Bundle()
-            args.putString("category_name", category) // 카테고리 이름을 Bundle에 저장
+            args.putString("category_name", category)
             fragment.arguments = args
             return fragment
         }
@@ -44,19 +43,14 @@ class CategoryFragment : Fragment() {
             Pair(R.drawable.ic_launcher_background, "Item 5")
         )
 
-        // 동적으로 아이템 추가
-        for ((imageRes, title) in frequentlyViewedItems) {
-            val itemBinding = ItemFrequentBinding.inflate(layoutInflater, binding.frequentlyViewedContainer, false)
-            itemBinding.imageFrequent.setImageResource(imageRes)
-            itemBinding.textFrequent.text = title
-
-            // 클릭 이벤트 설정 (필요시)
-            itemBinding.root.setOnClickListener {
-                // 클릭 시 동작
+        // RecyclerView 초기화
+        binding.recyclerViewFrequent.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewFrequent.adapter =
+            FrequentAdapter(frequentlyViewedItems) { item ->
+                // 아이템 클릭 이벤트 처리
+                println("Clicked on: ${item.second}")
             }
-
-            binding.frequentlyViewedContainer.addView(itemBinding.root)
-        }
     }
 
     override fun onDestroyView() {

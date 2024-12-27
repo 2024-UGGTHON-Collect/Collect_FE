@@ -17,7 +17,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         // 카테고리 매핑
@@ -37,7 +37,8 @@ class HomeFragment : Fragment() {
         )
 
         // RecyclerView 설정
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerView.adapter = ItemAdapter(items, categories)
 
         // 1부터 31까지 버튼 동적으로 추가
@@ -48,7 +49,7 @@ class HomeFragment : Fragment() {
 
             // LinearLayout.LayoutParams로 버튼 너비와 높이 설정
             val layoutParams = LinearLayout.LayoutParams(
-                150, // 버튼 너비를 100dp로 설정
+                150, // 버튼 너비를 설정
                 LinearLayout.LayoutParams.WRAP_CONTENT // 높이는 내용에 맞게 자동 조정
             ).apply {
                 marginEnd = 25 // 버튼 간의 여백 추가
@@ -58,11 +59,16 @@ class HomeFragment : Fragment() {
             // 둥근 테두리 설정 (배경 설정)
             button.setBackgroundResource(R.drawable.rounded_button)
 
+            // 동적으로 추가된 버튼 클릭 리스너 설정
+            button.setOnClickListener {
+                navigateToCategory("날짜 $i") // 예: 버튼에 맞는 동작 설정
+            }
+
             // 버튼을 LinearLayout에 추가
             linearLayout.addView(button)
         }
 
-        // 버튼 클릭 리스너 설정
+        // 정적 버튼 클릭 리스너 설정
         binding.buttonShopping.setOnClickListener {
             navigateToCategory("쇼핑")
         }
